@@ -34,3 +34,41 @@
     $$\text{pixel}_{\text{norm}} = \frac{\text{pixel}}{127.5} - 1.0$$
     The model output is directly a list of floating-point probabilities adding up to 1.0.
   - **Quantized**: No normalization arithmetic is needed on the input; raw RGB integer values ($0$ to $255$) are passed directly as `uint8`. However, the output tensor produces `uint8` integers ($0$ to $255$), requiring Dart to divide by $255.0$ (`output[i] / 255.0`) to retrieve fractional probabilities.
+
+---
+
+## Part 2: Setup, Assets & Dependencies
+
+### Assets & Dependencies Verification
+- **Model assets directory**: `assets/model/` containing `model_unquant.tflite`, `labels.txt`, and `sample.jpg`.
+- **Declared in `pubspec.yaml`**:
+  ```yaml
+  flutter:
+    uses-material-design: true
+    assets:
+      - assets/model/
+  ```
+- **Dependencies added**:
+  - `tflite_flutter: ^0.12.1` (TensorFlow Lite C-API bindings)
+  - `image_picker: ^1.2.4` (Camera and gallery image picker)
+  - `image: ^4.13.1` (Pure Dart image decoding, cropping, resizing, and EXIF orientation)
+  - `http: ^1.6.0` (HTTP client for downloading web images)
+- **Platform Configuration**:
+  - `android/app/src/main/AndroidManifest.xml`: added `android.permission.INTERNET`.
+  - `android/app/build.gradle.kts`: set `minSdk = 26` to satisfy TensorFlow Lite native binary requirements.
+  - `ios/Runner/Info.plist`: added `NSCameraUsageDescription` and `NSPhotoLibraryUsageDescription`.
+
+### Inline Questions — Part 2
+
+#### 1. What is the difference between listing `assets/model/` and listing `assets/`? Which files would each one bundle?
+* **Answer**: In Flutter `pubspec.yaml`, specifying an asset directory using a trailing slash (e.g. `- assets/model/`) bundles all files located directly within that directory. However, Flutter does **not** recursively traverse child subdirectories.
+  - Listing `- assets/`: Bundles only files residing directly inside `assets/` (e.g. `assets/sample.png`). Any file inside subfolders like `assets/model/` is ignored and excluded from the app bundle.
+  - Listing `- assets/model/`: Specifically bundles all files located in the `assets/model/` folder (i.e. `model_unquant.tflite`, `labels.txt`, `sample.jpg`), ensuring the TensorFlow Lite interpreter and asset loader can locate them at runtime via `rootBundle`.
+
+#### 2. Why can `image` and `http` run in a plain Dart unit test while `tflite_flutter` and `image_picker` cannot?
+* **`image` and `http`**:
+  - The `image` library is written entirely in **pure Dart**. It performs mathematical manipulation on byte buffers in memory without touching platform APIs, native C libraries, or Flutter engine hooks.
+  - The `http` package uses Dart's built-in `dart:io` socket/HTTP implementation on desktop/server VMs. Both can execute anywhere the standalone Dart VM runs.
+* **`tflite_flutter` and `image_picker`**:
+  - `image_picker` is a Flutter plugin that delegates to host operating system UI APIs (Android `Intent` / `Activity` and iOS `UIImagePickerController`) via Flutter's binary messaging platform channels (`MethodChannel`). In a plain Dart unit test, the Flutter Engine and native OS bridges are absent, resulting in a `MissingPluginException`.
+  - `tflite_flutter` requires the compiled native TensorFlow Lite runtime binary (`.dll`, `.so`, or `.dylib`) accessed via `dart:ffi`. In standalone Dart tests, the native libraries and Flutter asset bundles (`rootBundle`) are not initialized unless configured with a custom Flutter test runner and bundled mock binaries.
