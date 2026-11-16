@@ -58,6 +58,14 @@ add_subdirectory("runner")
 include(flutter/generated_plugins.cmake)
 
 
+# Copy tflite DLL into bundle
+add_custom_command(TARGET ${BINARY_NAME} POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E make_directory "${BUILD_BUNDLE_DIR}/blobs"
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${CMAKE_CURRENT_SOURCE_DIR}/../blobs/libtensorflowlite_c-win.dll"
+    "${BUILD_BUNDLE_DIR}/blobs/libtensorflowlite_c-win.dll"
+)
+
 # === Installation ===
 # Support files are copied into place next to the executable, so that it can
 # run in place. This is done instead of making a separate bundle (as on Linux)

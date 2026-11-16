@@ -113,22 +113,22 @@ class ModelScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        'UI Kit: Clean Mobile UI Kit',
+                        'UI Kit: Mobile UI kit (Community)',
                         style: textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Author: UI Prep & Community Contributors',
+                        'Author: Figma Community Contributors',
                         style: textTheme.bodyMedium,
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Platform: Figma Community (figma.com/community)',
+                        'Link: figma.com/design/9Z32ejEoHgFCi3pN7cnCsi',
                         style: textTheme.bodyMedium,
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'License: Creative Commons Attribution 4.0 International (CC BY 4.0)',
+                        'License: Creative Commons Attribution 4.0 (CC BY 4.0)',
                         style: textTheme.bodyMedium,
                       ),
                       const SizedBox(height: 4),

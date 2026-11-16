@@ -111,12 +111,12 @@
 ## Part 4: Five Screens, One Design
 
 ### Design Credit & Extraction (T14 & T15)
-- **Figma Design Reference**: *Clean Mobile UI Kit*
-- **Author**: UI Prep & Community Contributors
-- **Platform**: Figma Community (`figma.com/community`)
+- **Figma Design Reference**: *Mobile UI kit (Community)*
+- **Author**: Figma Community Contributors
+- **Link**: `https://www.figma.com/design/9Z32ejEoHgFCi3pN7cnCsi/Mobile-UI-kit--Community-?node-id=0-1&p=f`
 - **License**: Creative Commons Attribution 4.0 International (CC BY 4.0)
-- **Reference Frames**: Saved as `docs/design-1.png` (Home / Welcome reference) and `docs/design-2.png` (Result / History reference).
-- **Theming**: Consolidated in `lib/theme/app_theme.dart`. All screens access colors, typography, paddings, and borders strictly via `Theme.of(context)`. No raw `Color(0xFF...)` or literal font sizes are present in any screen file.
+- **Reference Frames**: Saved as `docs/design-1.png` and `docs/design-2.png`.
+- **Theming**: Consistently matches the clean `#5DB075` green palette, white surface `#FFFFFF`, and `#F6F6F6` background styling in `lib/theme/app_theme.dart`. All screens access typography, colors, and paddings strictly via `Theme.of(context)`.
 
 ### Inline Questions — Part 4
 

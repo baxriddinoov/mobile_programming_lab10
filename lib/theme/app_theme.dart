@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static const Color primaryColor = Color(0xFF4F46E5); // Indigo 600
-  static const Color primaryContainerColor = Color(0xFFEEF2FF); // Indigo 50
-  static const Color onPrimaryContainerColor = Color(0xFF312E81); // Indigo 900
-  static const Color secondaryColor = Color(0xFF0891B2); // Cyan 600
-  static const Color secondaryContainerColor = Color(0xFFECFEFF); // Cyan 50
-  static const Color onSecondaryContainerColor = Color(0xFF164E63); // Cyan 900
+  static const Color primaryColor = Color(0xFF5DB075); // Clean Figma Green
+  static const Color primaryContainerColor = Color(0xFFE8F5E9); // Light green tint
+  static const Color onPrimaryContainerColor = Color(0xFF1B5E20); // Dark green text
+  static const Color secondaryColor = Color(0xFF4B9460); // Accent green
+  static const Color secondaryContainerColor = Color(0xFFF1F8F4); 
+  static const Color onSecondaryContainerColor = Color(0xFF0F3819); 
   static const Color surfaceColor = Color(0xFFFFFFFF);
-  static const Color surfaceDimColor = Color(0xFFF8FAFC); // Slate 50 background
-  static const Color onSurfaceColor = Color(0xFF0F172A); // Slate 900
-  static const Color onSurfaceVariantColor = Color(0xFF64748B); // Slate 500
-  static const Color outlineColor = Color(0xFFE2E8F0); // Slate 200
-  static const Color outlineVariantColor = Color(0xFFCBD5E1); // Slate 300
+  static const Color surfaceDimColor = Color(0xFFF6F6F6); // Slate/Grey background from Figma
+  static const Color onSurfaceColor = Color(0xFF1F1F1F); 
+  static const Color onSurfaceVariantColor = Color(0xFF666666); 
+  static const Color outlineColor = Color(0xFFE8E8E8); 
+  static const Color outlineVariantColor = Color(0xFFBDBDBD); 
   static const Color errorColor = Color(0xFFDC2626); // Red 600
   static const Color errorContainerColor = Color(0xFFFEF2F2); // Red 50
   static const Color onErrorContainerColor = Color(0xFF991B1B); // Red 800
