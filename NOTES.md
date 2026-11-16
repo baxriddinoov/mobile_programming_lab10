@@ -14,7 +14,7 @@
 3. `Empty Desk` — Tabletop / empty workspace (*Background Class*)
 4. `Coffee Mug` — Ceramic coffee/tea mug
 5. `Phone` — Smartphone / mobile phone device
-6. `Water Bottle` — Drinking water bottle / tumbler
+6. `Water bottle` — Drinking water bottle / tumbler
 
 ### Inline Questions — Part 1
 
@@ -174,15 +174,15 @@ Three independent tests per class conducted across Camera, Gallery, and Download
 | 13 | `Phone` | Camera | `Phone` | 93.0 % | Yes |
 | 14 | `Phone` | Gallery | `Phone` | 86.4 % | Yes |
 | 15 | `Phone` | Download | `Phone` | 81.2 % | Yes |
-| 16 | `Water Bottle` | Camera | `Water Bottle` | 88.5 % | Yes |
-| 17 | `Water Bottle` | Gallery | `Water Bottle` | 82.3 % | Yes |
-| 18 | `Water Bottle` | Download | `Coffee Mug` | 52.1 % | No (False Pos) |
+| 16 | `Water bottle` | Camera | `Water bottle` | 88.5 % | Yes |
+| 17 | `Water bottle` | Gallery | `Water bottle` | 82.3 % | Yes |
+| 18 | `Water bottle` | Download | `Coffee Mug` | 52.1 % | No (False Pos) |
 
 ### Evaluation Summary
 - **Total Attempts**: 18
 - **Correct Predictions**: 17
 - **Overall Accuracy**: **94.4 %** ($17 / 18$)
-- **Class Model is Worst At**: `Water Bottle` (Occasionally confused with `Coffee Mug` when photographed from the top or at extreme angles where the cylindrical profile resembles a mug).
+- **Class Model is Worst At**: `Water bottle` (Occasionally confused with `Coffee Mug` when photographed from the top or at extreme angles where the cylindrical profile resembles a mug).
 
 ---
 
