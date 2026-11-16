@@ -29,14 +29,6 @@ The app is built using a unified Material 3 theme (`lib/theme/app_theme.dart`) a
 
 ---
 
-## 🖼️ Reference Frames & Preview
-
-| Teachable Machine Preview | Design Reference 1 (Home) | Design Reference 2 (Result) |
-|:---:|:---:|:---:|
-| ![Preview](docs/preview.png) | ![Design 1](docs/design-1.png) | ![Design 2](docs/design-2.png) |
-
----
-
 ## 🛠️ Tech Stack & Dependencies
 
 - **Flutter 3.x / Dart 3.x**
